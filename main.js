@@ -28,6 +28,7 @@ b.loga()
 let arr = [1, 2, this]
 let obj = { name: 'alo'}
 
+
 // console.log(Object.prototype === Function.__proto__);
 // console.log(b.__proto__ === AAA.prototype);
 // console.log(AAA.prototype);
