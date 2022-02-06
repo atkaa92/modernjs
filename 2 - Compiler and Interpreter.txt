@@ -1,0 +1,47 @@
+Bit (Binary  digit - b) - is the smallest unit of storage in computers, it can just take on of two values 1 or 0
+Byte (B) - unit of data that is made up of eight bits 
+
+Languages are independent of how they are actually implemented.
+Programming language itself is neither compiled nor interpreted, the implementation is. 
+Many programming languages have been implemented using both compilers and interpreters. 
+E. g. Java which source code is compiled to intermediate language (bytecode) and interpreted by Java's interpreter that is a part of virtual machine - VM 
+
+Compiled languages are the programming languages that is typically implemented using compilers. 
+Compiler is a program that translates statements written in a particular programming language into another language, 
+usually machine code. 
+A program which takes human readable code and creates the separate file which contains the machine code (executable), which machine can directly run  
+Pros – ready to run, fast execution, private code 
+Cons – not cross platform - separate binary code files, extra step – long compilation, poor portability (compile for specific CPU) , poor debuging
+
+Interpreted languages are the programming languages that is typically implemented using interpreters.
+Interpreter translates programs on the fly instead of focusing on the whole program at once. 
+Even though interpreter could translate source code into machine code, 
+these days most of the interpreters work with the intermediate language also called bytecode. 
+This is because interpreting source directly to machine code is quite slow. 
+Interpreter doing compilation during the fly going through source code line by line 
+Pros – cross platform, simpler test, easy debug, portability (no need to compile for specific CPU) 
+Cons – slow execution, public code 
+ 
+Intermediate approach - at first compile source code to intermediate language(bytecode), which is portable and cross platform,
+after send it to computer which will take it to machine code and execute it.
+
+So, there is not a lot of fully interpreted languages left. Most of them nowdays using one of these three categories.
+1. Compiled - C, C++
+2. Compiled to bytecode and interpreted - Java, C#, Ruby, Python
+3. Compiled to bytecode and interpreted with JIT - Java, V8, Pypy(python running with JIT)
+
+JIT is a hybrid between of normal compilation (AOT compilation) and interpretation. 
+JIT has the ability to store already compiled machine code from bytecode, so it doesn't have to translate it each time. 
+JIT is analyzing the code that is been executed and making decisions which part should be compiled into machine code 
+based on how often that peace of code has been executed. 
+This brings high execution speed as all the “hot” components are fully compiled. 
+So what's JIT doing
+1. identify “hot” components-functions of the code, 
+2. transform those components into machine code during runtime and optimize the generated machine code, 
+3. swap specific bytecode with the optimized machine code version. 
+
+https://www.youtube.com/watch?v=I1f45REi3k4
+https://www.youtube.com/watch?v=JNMy969SjyU
+https://www.youtube.com/watch?v=y6VvxGHCxa4
+https://www.youtube.com/watch?v=svJerixawV0
+ 

@@ -1,0 +1,26 @@
+Js is a synchronous, single traded language, it has one call stack and it can only do one thing at a time. 
+Call stack is present in JS engine and all the calls of JS are executed in that call stack. 
+Whenever any JS program is run a GEC is created and pushed inside the call stack. 
+Web APIs are the part of browser (settimeout, DOM api, localstorage, console, fetch, etc). 
+V8 call stack has access to these APIs through the global object (Window). 
+Browser wraps up all the APIs into a global object. 
+Settimeout registers a callback which it gets into the web API envierement. 
+This callback is going to call stack through the task/microtask queues with monitoring/help of event loop. 
+The main job of event loop is to check the queues and put the callback function into call stack if it is empty (has nothing to execute, even GEC). 
+Whenever we are doing `Document.Something` we are calling the DOM Api in the Web APIs through the Global object. 
+Event callbacks (click, hover, scroll) are also registered in Web API environment with help of addEventListener, 
+like settimeout callback, and event handlers are attached to those callbacks.  
+Same happened with fetch Api callback functions. But there is a one main difference. 
+Microtask queue is quite similar with task queue but its priority is higher, that means that the function that are passed to it will be pushed to call stack first. 
+All promises CB-s will be pushed to microtask queue, as well as mutation observers (rendering, painting). All the other CB-s are going to task queue.
+Mutation observer keeps on checking wheatear there is some mutation in DOM tree or not.
+Call stack works with LIFO (GEC/EC1/EC1-1), first will pop EC1-1, after EC1 and lastely GEC
+Queues work with FIFI, first added CF will be executed first
+Starvation of callback/task queue - when the microtask creates another microtask and CB-in callback queue cant get his turn to be executed. 
+Rendering deteced as callbacks for microtask queues (once per 60 frames). 
+So blocking Call stack with synchronous actions will stop browser from rendering(change dom, change style, print pixels).
+So settimeout loop is not a render blocking, but normal loop is.
+
+https://www.youtube.com/watch?v=8aGhZQkoFbQ
+https://www.youtube.com/watch?v=cCOL7MC4Pl0
+https://www.youtube.com/watch?v=8zKuNo4ay8E

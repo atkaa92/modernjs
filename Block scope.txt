@@ -1,0 +1,25 @@
+Block in JS is defined by curly braces {}, it used to combain multiple JS statements into one group.
+The usage of this to give JS multiple statements wher it expects only one.
+E.g. if(condition) {}
+Initially IF expects one statemet, for example variable assignement, 
+instead we can use block to execute multiple statements.
+Block also known as Compound statement.
+
+Variable declarations in block are hoisted in diferent scope named `Block`, for let and const.
+Vars in block hoisted in `Global`.
+There are `Global` for vars, and `Script` for let and const for variables in global space.
+This is why we call let and const Block scoped.
+Block scoped let and const are not accessable in Global scope.
+
+Shadowing is like override variables in deiffernet scope. E.g.
+let a = 1
+{
+    let a = 2
+}
+
+We cann't shadow Global let with Block var, it same as redecearing let in the same scope.
+This is known as Inlegal shadowing.
+There is no Inlegal shadowing for function scope.
+
+Let will die at the end of the scope where it was decleared.
+

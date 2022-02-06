@@ -1,0 +1,10 @@
+Scope is a current context of execution, simplly where the variable is accessable. 
+Scope defines accessability of variables and functions in the code.It tells us what we can access and what not.
+If JS engine can’t find the local variable in the current EC it will look to nearest parent EC for that variable until engine reaches the GEC, 
+and if variable is missing it will throw reference error of not defined. 
+
+Lexical envirement means Local memory plus reference to Lexical envirement of the Lexical parent, which itself contains Local+Lexical, up to GEC.
+Simplly it means where the code is phiscally writtrn. So where is function is written , not called.
+Lexical parent means in which envirement function exists
+
+So going throw this Lexical envirement known as Scope chain.

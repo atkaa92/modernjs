@@ -1,0 +1,9 @@
+this is the object that the function is a property of, or the object form which we are calling the function
+Or this refers to whatever is the left of the dot. OBJECT.function
+this gives option for methoeds to access to their objects and execute same code for multiple objects
+this keyword is dynamically scoped. It doesn't matter where its written, matters how the function was called.
+Arrow functions are lexically bind. They has lexical behavior. That means it will take object as this which is srounding it.
+
+If we have function constructers executed using the new operator window objcet passing chain as `this` will be broken, as new operator creates its own context. 
+So, if we are calling nested functions from global scope 'this' will be pointed to the first function 'this' which is 'window'. 
+With constructor functions inner function will inherit whatever the parent function context is. 

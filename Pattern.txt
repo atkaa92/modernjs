@@ -1,0 +1,9 @@
+// Module pattern allows us to break up parts of our code info self contain modules with private variables and functions
+
+// Singletone object is anonymous and it can only return one instence of an object at a time
+// Repeated call will just return the same instance
+
+// Factory pattern is a way of creating an interface for creating objects, 
+// but we can let subclasses define which class to instantiate
+
+// Observer pattern allowes us to subsribe and unsubscribe to certain events or certain functionality

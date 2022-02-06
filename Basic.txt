@@ -1,0 +1,69 @@
+// ------------------ 6 --------------------
+// console.time('alo');
+//     console.log(123);
+// console.timeEnd('alo');
+
+// ------------------ 7 --------------------
+// Variables contain letter, number, $, _
+// Cant start with number
+// Cant declear undefined const (just declear without value)
+// Const can be changed but not reassigned
+
+// ------------------ 8 --------------------
+// JS has two data types ` primitive and reference
+// Primitive - string, number, boolean, null, undefined, symbol
+// Refernece - array, object, function, date, etc.
+// JS is a dinamicly types language, data types are asociated with values not with variables, same variable can hold different type of values
+// Typescript is a superset of JS which make it staticly typed language
+// All reference types are objects 
+
+// ------------------ 9 --------------------
+// Length of number is undefined
+// Type of NaN is number
+
+// ------------------ 22 -------------------
+// Window is a global object of browser envirement
+
+// ------------------ 32 -------------------
+// Event bubling and delegation
+// Bubling - eg. buble click event up, throw dom tree for all parents
+// Delegation - put event on parent and get target by condition throw the childs
+
+// ------------------ 33 -------------------
+// Localstorage needs to be cleared manually, sessionstorage will be cleard after browser close
+// Other then this they are the same
+
+// ------------------ 45 -------------------
+// JS has a lot of build in constractors, eg.
+// const alo = new String('alo'), can be added property to it -> like alo.age = 45, typeof alo = object
+// alo === 'alo' -> false, alo == 'alo' -> true
+// same for new Number(123) and new Boolean(true)
+// new Function('x', 'y', 'return  1 + 1')
+// new Object({name: "Alo"}), same as {name: "Alo"}
+// new Array(1,2,3), same as [1,2,3]
+// new RegExp('\\w+'), same as /\w+/
+
+// ------------------ 46 -------------------
+// The main goal of prototype is not to repeat all methodes over and over for every object instence, no to hardcode them to each instence
+// Each object in Js has a prototype, and prototype in an object itself
+// All objects inherit their properties and methods from their prototype
+// Prtotype properties are not owned property for constractor
+// ES5 inheritence
+// function Perosn(name) {
+//     this.name = name
+// }
+// function User(name, email) {
+//     Perosn.call(this, name)
+//     this.email = email
+// }
+// User.prototype = Object.create(Person.prototype)
+// User.prototype.constructor = User
+// Class Object is the main class in JS, and its in prototype for all Objects
+
+// ------------------ 49 -------------------
+// Any method added inside the ES6 Class will be added to it's prototype
+
+// MAPS = key-value pairs - can use ANY type as a key or value
+// SETS - Store unique values of any type
+
+A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern functionality on older browsers that do not natively support it.

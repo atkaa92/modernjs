@@ -1,0 +1,22 @@
+An alogorithm is an sequence of steps (instructions) to solve a clearly defined problem
+Best solution options
+1. Minmium amount of code
+2. Best performance
+3. Least memory usage
+
+Best performance has highest priority - time complexity
+
+Big O measures complexity as input/data-set size grows
+
+Constant time complexity - O(1)
+Logarithmic time complexity - O(log n)
+Liner time complexity - O(n)
+Quadratic time complexity - O(n2)
+Cubic time complexity - O(n3)
+Exponential time complexity - O(2n)
+
+To define time complexity we need to count the number of expression executions
+
+T = 4 + 3n + 2n2
+In all casses we just ignore less growing term and keep only fastest growing one, and remove all coefficients
+For this example we should leav only n2 - O(n2)

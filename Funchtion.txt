@@ -1,0 +1,24 @@
+Function statement - basic function keyword plus function name, also known as function declaration. We cant imedialely call function declaration like IIFEs.
+Function expression - assigning function to a variable. Here function acts like a value.
+Anonymous function - function without a name. Just creation anonymous function will throw a Syntax Error.
+Named function expression - same as function expression, but with assigned name. It can't be called by name.
+First class functions - the ability to use functions as values is known as FCF. Assign them to variables, pass to another function, return from function.
+Callback function - a function which passed into another function as an argument, which is then invoked inside.
+Higher order functions - a function which take another function as an argument or returns a function from it.
+Constructor function - a function which used in JS to create an object. Arrow function can't be Constructor functions as they dont have this keyword. 
+IIFEs - imedialely invokable function expression - a function that will be imedialely called. IIFEs known as function expression.
+IIFEs used to avoit global variables issues, as they are ruanning imedialely and haveig thei onw FEC or scope.
+Map - used to transorme an existing array by given function and return new array.
+Filter - used to filter inside the given array and return new array.
+Reduce - used to take all the elements and come of the single value of them, with the logic inside the CB function.
+
+Main difference between function statement and function expression is hoisting.
+Event listeners callback functions variables are not garbage collectored. So removing event listeners is a good practice.
+We passing argumets to functions, and functions accept that argumets through parameters.
+Calling Cunstructor Functions with keyword new , makes them to cretae a new object inside the function and retun that at the end.
+A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern functionality on older browsers that do not natively support it.
+
+function alo () {
+    log('alo')
+}
+alo() === alo.call()

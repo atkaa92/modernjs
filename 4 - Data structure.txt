@@ -1,0 +1,234 @@
+Data structure is a way to store, organize and manage information (data) in a way that allows 
+us (programmers) to easily access or modify the values within them
+Most popular data structure
+* Arrays
+* ArrayLists
+* Stacks
+* Queues
+* LinkedLists
+* Doubly-LinkedLists
+* Dictionaries
+* Hash-Tables
+* Trees
+* Tries
+* Heaps
+* Graphs
+
+BigO notation is a way to basically 'Score' a data structure based on 4 criteria
+The most common functions to want from data structure
+* Accessing elements
+* Searching for an element
+* Inserting an element
+* Deleting an element
+Measuring efficiency with BigO notation by measuring how efficiency a data structure can do these 4 things
+A time complexity equation works by inserting the size of data-set as an integer 'n', 
+and returning the number of operation that need to be conducted(executed) by the computer before the function can finish
+'n' is the size of the data set (amount of elements contained within the data structure )
+Always use the worst-case scenario when judging the data structure
+
+The absoulte best a data structure can score on each criteria is O(1), 
+which means no matter what the size of data set is the task will be completed in a single step
+
+The next fastest type of time complexity equation is O(log n),
+which gets more efficient as the size of data set increases (example is binary search)
+
+The next common time complexity equation type is O(n), 
+which is the last decent equation (example linear search)
+
+O(n log n) - relatively bad
+O(n2) - very bad
+O(2n) - exponential
+O(n!) - no no no
+
+Time complexity equation is not the only metric we should be use to chose which data structure to use
+
+------- Array --------
+C# -> int[] array = {1,2,3}
+Java -> int array[] = {1,2,3}
+
+An array is fundamentally a list of similar values.
+Collective total of elements in the array.
+Parallel arrays are two or more arrays which contain the same number of elements, and have corresponding values in the same position
+An array usually has tree attributes 
+*name *type *size
+Name is used to reference and iteract with array
+Type is what type of information is stored or will be stored within that array, and it HAS to hold all the same type of information
+Size is a set integer that is fixed upon creation of an array. 
+It represents the total amount of elemets that are able to be stored within the array. It CANNOT be changed. (to change it we need to get back where it was initialized)
+There are two different ways to creat an array
+*Populate an array with all elements
+*Set a specific size for the array and populate it later 
+To get information that is stored within the array, we use numerical index, which corrsponds to an element within the array
+Array accessing time complexity - O(1)
+Array searching time complexity - O(n) - linear search
+Array inserting time complexity - O(n) - as this proces requires shifting all elements to right that's after the index that we are inserting(up one index)
+Array deleting time complexity - O(n) - as this proces requires shifting all elements to left that's after the index that we are deleting(down one index).
+Pros - good for storing similar data, O(1) access
+Cons - size cannot be changed, O(n) for insert and delete, wasting memory space for non filled elements
+
+-------- Array List --------
+C# -> ArrayList arrayList = new ArrayList()
+Java -> ArrayList<Integer> arrayList = new ArrayList<Integer>()
+
+The arrayList is fundamentally can be thought of as a growing array
+ArrayLists size is dynamic. ArrayLists has an array behind the scene
+ArrayLists predefined size is 10
+ArrayLists are not support declaration with values, its always should be empty initialized
+As arrayList belongs to pre-built ArrayList 'class', that means it has pre-built fucntions to access, find, change or delete.
+For every programming language that methods are different, but quite similar.
+*add *remove *get *set *clear *toArray
+ArrayLists only hold Object, not primitive types. So if we pass int 2 to .add(2) method , it will be converted to Integer Object(2). This is known as Autoboxing.
+ArrayList accessing time complexity - O(1) , as under ArrayList.get(0) is the reference in the memory to the value not actual value like Array 
+ArrayList searching time complexity - O(n) - linear search
+ArrayList inserting time complexity - O(n) - just like an Array
+ArrayList deleting time complexity - O(n) - just like an Array
+
+So why not use always ArrayList?
+* Arrays less memory usage
+* ArrayList can only hold Objects (Autoboxing)
+
+Random access data structures - Array and ArrayList
+Each element is independent of the one before or after, meaning getting the certain element did not relay any of others contained in the data structure.
+So elemet can be accessed directly and in the constant time.
+
+Sequential access data structures - Stack, queue...
+Sequential access data structure can only be accessed in the particular order, 
+and each elemet depends on the others, and may only be getted through those other elements.
+
+-------- Stack --------
+A sequential access of data structure in which elemets are added and removed acording to LIFO
+Main methods
+*push *pop *peek *contains
+Push - adds Object to the top of the Stack
+Pop - removes and retuns the last added(first) element
+Peek - just retuns first elemet without removing
+Contains - seraches through the stack, retuns true or false 
+
+Stack accessing time complexity - O(n) , need to pop all the elements to get first added
+Stack searching time complexity - O(n) - check all the way down if needed
+Stack inserting time complexity - O(1) - push to top
+Stack deleting time complexity - O(1) - pop from top
+
+-------- Queue --------
+A sequential access of data structure in which elemets are added and removed acording to FIFO
+Main methods
+*enqueue *dequeue *peek *contains
+Enqueue - adds Object to the end of the Queue, add to tail
+Dequeue - removes and retuns the first added element, remove from head
+Peek - just retuns first elemet that was added without removing, elemet from the head
+Contains - seraches through the stack, retuns true or false 
+
+Queue accessing time complexity - O(n) , gettin elemet from the tail need to dequeue all starting from head
+Queue searching time complexity - O(n) - check all the way down to the tail if needed
+Queue inserting time complexity - O(1) - Enqueue to tail
+Queue deleting time complexity - O(1) - Dequeue from head
+
+-------- LinkedLists --------
+A sequential access of linear data structure in which every elemet is a seperate Object called a Node,
+which has two parts - the data and the pointer to the next Node in the list,
+Head Nodes pointer is Null at first, as there is no upcoming Node to put reference there.
+For Tail Node reference is always null as it is the last one.
+
+Main methods
+*add to head
+Just make a new Node and make its pointer to point to exisiting head Node
+*remove from head
+Just change head Nodes pointer to Null, it will automatically cut that Node from LinkedLists
+
+*add to middle
+Make new Node pointer to point the Node comming after that and change its previous Node's poiter to the new one
+*** Note - we are not moving any Node in the memory, we just changing the pointers
+*remove from middle
+Make previous Node of deleting Node pointer to point the Node that is comming after deleting Node, and finally set deleting Node's pointer to null 
+
+*add to tail
+Create new Node with null pointer, and make existing tail Node pointer to point to this new one
+*remove from tail
+Just set tail Node's previous Node pointer(reference) to full, so tail Node will not have any connection to LinkedList 
+
+LinkedLists accessing time complexity - O(n) - should use pointer as a little map to reach tail Node
+LinkedLists searching time complexity - O(n) - simple loop
+LinkedLists inserting time complexity - O(n) - for middle,  O(1) - for head and tail 
+LinkedLists deleting time complexity - O(n) - for middle,  O(1) - for head and tail 
+
+--------- Doubly-LinkedLists ---------
+A sequential access data structure in which stores data in the form of Nodes, to ba able to traverse both forwards and backwards using pointers
+So same logic as for LinkedLists but with additional previout Node elemet pointer, and Head Node always has null for prev Node, Tail Node has null for next Node
+
+Main methods
+*add(head, middle, tail) *remove(head, middle, tail)
+Steps are the same as for stundard LinkedList, just additioal steps for prev Node
+
+Doubly-LinkedLists accessing time complexity - O(n) - should use pointers as a little map to reach tail Node
+Doubly-LinkedLists searching time complexity - O(n) - simple loop
+Doubly-LinkedLists inserting time complexity - O(n) - for middle,  O(1) - for head and tail 
+Doubly-LinkedLists deleting time complexity - O(n) - for middle,  O(1) - for head and tail 
+
+--------- Dictionaries ---------
+One of the most abstract data structure, which also called Maps and Associative Arrays.
+So abstract data structure which stores data in the form of key/value pairs,
+each value within a dictionary has special key associated with it, and together they created a pair, 
+which is then stored in dictionary data structure as an element.
+For indexing dictionaries we using these keys instead of a numerical index.
+Keys can be pretty much any primitive data type like int, double, string...
+For values it can be pretty much anyting from primitive data types to data structures.
+
+Two main restrictions
+*every key can appear only once in the dictionary
+*each key can have only one value
+
+Dictionaries accessing time complexity - O(1) - thanks to hash functions , which will generate new keys form existing (2:06 - 2:15 in video below)
+Dictionaries searching time complexity - O(1) - hash function
+Dictionaries inserting time complexity - O(1) - hash function
+Dictionaries deleting time complexity - O(1) - hash function
+
+All Data structures above are stored linearly.
+
+--------- Hash Tables ---------
+As the size of the array is not too large, we can't use that to store for example array with 1 billion length, 
+which has just 10 values (holly array). This will bring 9.999.990 Nil values(just holes).
+This scenario will be managed by Hash Table.
+Hash Tables are fundamentally a way to store this information in such a way that we'er able to cut down the amount of Nil values, 
+while also allowing for the inforamtion to be stored in a way that is easily accessable.
+We will able to store that values to the tabel which will contain only 10 elemets.
+This will be managed with Hash Functions. Function will take all the keys for given Dictionary and map them to the certain index location in an array.
+So basically we are creating new table which will contain new keys, which are generated by Hash Function and new kesy(indexes).
+And anytime that we need value that is paired with old key, we are just passing that old key to Hash Function, 
+and it will return an index for created table to just grab the value.
+So Dictionaries are built upon the Hash Tables, and the key's in our key/value pairs are stored in memory In this hash tables 
+at indexes which are determined by Hash Function.
+
+--------- Trees ---------
+Trees store data hierarchically as opposed linearly, best example is file structure.
+A tree is an abstruct Data structure which contains a series of linked Nodes conneted together to form a hierarchical representation of information, 
+like a linkedList where each Node has the option of pointing towards multiple Nodes
+Edge - a connection between Nodes
+Root Node - topmost Node of a tree
+Child Node - a Node which has an edge connecting it to another Node one level above itself
+Parent Node - any Node which has one or more child Nodes
+Leaf Node - a Node in a tree which doesn't have any child Node
+Height - number of edges on the longest possible path down towards Leaf Node
+Depth - number of edges required to get from that particular Node to the Root Node
+
+A Binary search tree is a simple variation on the standard tree with some rules (the serach through it is a Logarithmic time)
+* a Node can have at most two children
+* any Parent Node the child Node to the left has a value <= to itself, and the child to the right has a value >= to itself
+* no two Nodes can contain the same value
+
+--------- Tries/Heaps ---------
+Tries and Heaps are just a special Tree
+Tries most popular usage is word autocomplete
+Heaps most popular variation are Min-Heaps and Max-Heaps, where values going from min->max or max->min
+
+--------- Graphs ---------
+A nonlinear Data Structure consisting of Nodes and Edges, like an unorganized tree.
+Example
+{1,2,3,4,5,6}
+{(6,4),(4,5),(4,3),(3,2),(5,2),(2,1),(5,1)}
+Variations
+* Undirected Graph (frendship)
+* Directed Graph (follow)
+* Cyclic Graph (circule between Nodes, for Undirected Graph just two Nodes pointed each other)
+* Acyclic Graph (one direction Nodes)
+
+https://www.youtube.com/watch?v=YOfXMQnUlZY

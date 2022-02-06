@@ -1,0 +1,21 @@
+JS engine has two type of data structures to allocate memory` stack and heap.
+
+Stack - static memory allocation
+Stack is designed to deal with primitives, where all the primitive types will be allocated. 
+When it comes to object stack accepts the pointer(address, reference) of that object.
+It can be accessed really quick and it is very limited. 
+
+Heap - dynamic memory allocation
+Where objects and arrays will be allocated.  
+For reference type the element is created in the heap, but we have a pointer (address, reference) to that object in the stack,  
+and the variable simply stores the pointer. So, the variable dosn't know the address in the memory for that object,  
+but the variable knows where the pointer is on the stack, and the pointer then gives the address of that object in the memory.   
+It takes a little bit longer to access the actual value.
+
+All primitive types are passed by value, and they are copied by their value 
+Objects(arrays) are passed by reference and the are copied by their reference  
+When we pass as reference technically we are still passing by value but that value is a reference to that data 
+
+https://www.youtube.com/watch?v=IX3fDYz0WyM 
+https://www.youtube.com/watch?v=-hBJz2PPIVE 
+https://www.youtube.com/watch?v=9ooYYRLdg_g 

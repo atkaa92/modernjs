@@ -1,0 +1,10 @@
+Whenever we have function nested inside another function the Inner function is going to create Clouser from the Outer function EC and itself, 
+and whenever Inner is invoked, it can have access to the variable environment of Outer EC through the Clouser Scope. 
+And while executing the Inner function if it needs the variable that is missing from its FEC it will first look into Clouser Scope (scope chain). 
+
+Whenever function is returnd it remembers his initial Lexical envirement,
+so not only the function is returned, but the clouser which contains function and its initial Lexical envirement.
+
+So function alonge with its Lexical envirement bundled together forms a clouser.
+
+Clousers variables are not Garbige collectored.

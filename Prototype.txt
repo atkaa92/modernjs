@@ -1,0 +1,24 @@
+The simple amswer is to allow JS objects to inherit one of another.
+
+Prototype is just a property that every Cunstructor Functions and Classes that we create has, which point to an object.
+Prototype used to share all of the methoed across all of the instance that are created based on same Class or Function.
+To pass one object to anothers __proto__ we need to use let new = Object.create(old)
+Class is compiled down to function invokation with new keyword and adding shared methoed to functions prototype`
+(syntactical suger,same as [] -> new Array() )
+
+Both __proto__ and prototyp are objects, and all __proto__ has reference to some prototype.
+All Objects have __proto__.
+To understand what __proto__ is equal to we need to understand from which Cunstructor Function (Class) in was created.
+All functions and classes has prototyp. Except arrow functions, the don't have prototype.
+When we try to access primitive type as object, in memory object version of that primitive will be temporary created.
+***myObj.constructor.prototype === Object.prototype === myObj.__proto__
+Object.prototype.__proto__ === null, this is top thing in the prototyp chain
+
+All Classes an Cunstructor Functions has their own prototypes.
+And all the object instances that will be created from that Classes or Functions will inherite that prototype as __proto__ property.
+Two different prototypes cant be equal. E.g. Array.prototyp !== Number.prototyp.
+But two __proto__ can be equal if they are pointed to same prototype.
+Using prototyp helps us to keep seperate Class functions from instances created on that Class, do not repeat them for each instance, 
+but still give them option to access that functions.
+
+Not using the prototyp will force us set all function in the memory over and over when we are creating new instance.

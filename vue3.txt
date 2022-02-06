@@ -1,0 +1,41 @@
+lesson-30 (modal)
+CDN vue - use as a widget for current dom
+Directives?
+Attripute binding concept (directive v-bind)
+Computed property is a property that depends on ther data
+script ans style are optinal for component, template is required
+name is optional in component
+acceptig prop is optiional, we can accept but not pass
+emitting works with custom events, like click
+event midifiers like @click.shift, @click.right @click.self etc
+slits are used to pass custom templates to components
+
+lesson-37 (reaction)
+beforCreate - can't access to data and template elements in component
+created - can access to data , but not to DOM
+beforMount can access to data, events and templates
+beforeUpdate - fired after the data changed and before the updates are re-rendered to the dom
+updated - after dom re-rendered
+beforUnmount - 
+unmounted - use for component cleanup
+
+lesson-38 (form)
+two way binding - template input <-> component data
+
+lesson-56 (job) - route
+route params can be accepted in the component as a prop, for that we need prop: true in route export file
+redirect routes 
+$route - information
+$reouter - actions
+
+lesson-69 (planner) - route
+
+lesson-69 (dojo) - composition api
+reactive value - changes are reflect to dom
+reactivity of variables in setpu function can be managed by refs
+using ref we just need to asscess to its value, other then taht its the same as reactive
+with reactive we cant use primitive values
+refs are more reactive then reactives :) , so just always use refs
+watchEffect is not getting parameter to watch, instead its checking all variables changes that are used inside function
+we can stop watching just invoking the function 
+to use passed props in setup we need to accept them as first property

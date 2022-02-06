@@ -1,0 +1,51 @@
+1. Html parser reaches to .js and fetches it 
+
+2. Byte stream decoder - generates tokens 
+(keyword - "function, let, const", identifier - "variable name, obj name", numeric - "pure number", operator = "+ / -", punctuator - "{ ) .") 
+
+3. Passed to parser which generates AST from those tokens. During this step parser also checking syntax errors, like closing token is missing. 
+The top components in AST are operators, and child components are operands. Simply - do what (operator) using what (operand).
+
+4. Sending AST to Ignition interpreter (also called baseline compiler) which generates whole bytecode and starts to execute line by line. 
+Parsing from AST from bytecode is happening once, and after that engine is using only that bytecode.
+ 
+5. Calling the same function over and over it considered as "hot". In this case bytecode and profiling data are sent to Turbofan,  
+which generated highly optimized machine code for that "hot" functions based on passed data, assuming that it will get similar type us before.  
+But when we call that function with different Shape object, Shape check is failed, so V8 can no  
+longer use that optimized machine code, and it has to deoptimize that function and get back to binary code, and start the whole process again. 
+
+Bytecode is like an assembler but it is not depended on platform. 
+Bytecode is not always the same and it is executed through the VM (virtual machine), not directly by CPU. 
+While it runs the bytecode it collects profiling data. 
+Bytecode is much more compact the machine code, but bytecode needs interpreter to run, for machine code it directly runs on machine. 
+So, more optimization means more memory usage, this is why engines are not optimizing all code. Optimization level <> memory usage.  
+This is why only "hot" code is getting optimized. 
+
+When we pass an object to V8 like new Person ({name: 'a', age: 1}) , it creates a Shape for that specific object structure. 
+1. Create empty Shape (Hidden class) just "Person" 
+2. Create from first shape "Person | a" 
+3. Shape from second "Person | a | b" 
+Creating new Person ({name: 'b', age: 2}), will not create new shapes, will just use existing
+JS normal object not only includes key value pairs, but string-key and property attributes [ Value: 1] [Writable: true] [Enumerable: true] [Configurable: true] 
+Shape object has the same property attributes, but instead of value they contain offset of that property value.
+Shapes contains pointers (In the property attributes) to the offset on which we can find values of the properties on the object, like x offset is 0 and y offset is 1. 
+With inline caching V8 stores the result from the previous operation, so the next time we called the exact same operation 
+we already know the result. So, it won't go through property attributes and get the offset, it will just get that from inline cache instead,  
+like for this shape the offset for "x" is 0, get back to object and take the value immediately. 
+E.g., "Get x - shape name - offset 0", "get y - shape name - offset 1" 
+
+V8 has more ways to worked with packed array then the holly arrays.  
+Try to always avoid creating holes in arrays by adding value by key which is not the last one 
+E.g., let a = [1, 2] a [4] = 3. The main reason is to just print out that a [3] is undefined engine need to go all the way up  
+through prototype chain, to make sure that is is not exists. 
+
+Sometimes test can show wrong execution time as running the same function over and over it becomes "hot",  
+which means compiled and optimized, but in real life it can be called just ones.
+
+https://www.youtube.com/watch?v=xckH5s3UuX4 
+https://www.youtube.com/watch?v=m9cTaYI95Zc&t=1339s 
+https://www.youtube.com/watch?v=SNs61SwZbTI 
+https://www.youtube.com/watch?v=p-iiEDtpy6I 
+https://www.youtube.com/watch?v=5nmpokoRaZI 
+https://www.youtube.com/watch?v=r5OWCtuKiAk
+https://www.youtube.com/watch?v=Eowsw8XXVCQ

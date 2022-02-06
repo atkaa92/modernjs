@@ -1,0 +1,43 @@
+Everything in JS happens inside an Execution Context 
+The only time that EC is created is first when JS engine starts interpreting code, thats the GEC,  
+and after that whenever a function is invoked - FEC. 
+EC has two components 
+1. Memory component (variable environment) - where all the variables and functions are stored as a key: value pair 
+2. Code component (thread of execution) - where code is executed line by line at a time 
+Each EC will have two phases – memory creation and code execution.  
+For GEC even if there is zero code of JS GEC will have two properties 
+1. Global object - for browser its Window, for node environment it's called Global 
+2. 'this' keyword object - Window  
+In the creation phase all the variable declarations will be assigned a value of undefined, and the function declarations is put entirely in memory.  
+So, in the creation phase 4 things happens 
+1. Create global object 
+2. Create object called this 
+3. Set up memory space for variables and function declarations 
+4. Assign variable declarations a default value of undefined, while placing all functions directly in memory 
+ 
+In the execution phase where JS starts to execute code line by line. 
+In this phase in memory all the variable will get their actual values.  
+ 
+Function execution context FEC is created whenever a function is invoked.  
+The only difference between GEC and FEC is instead of creating global object FEC is creating arguments object.  
+Even if function is not accepting arguments through the parameters,  
+we will still be able to access to all those arguments in the function with help of that arguments object.  
+In FEC each argument will be allocated like normal variable declarations, but with actual passed value already assigned to it (skipping hoisting).  
+Any time the function is invoked a new FEC is created and added to execution stack. 
+If JS runs to `return` keyword if finds returned data form its EC memory and passes that to one EC above and sets that data as value for the variable which got assigned to that invoked function.  
+Whenever function is fully executed the FEC will be popped of the call/execution stack.  
+
+All the EC after creation is pushing to call stack, which has multiple names 
+* Call stack 
+* Execution context stack 
+* Program stack 
+* Control stack 
+* Runtime stack 
+* Machine stack 
+
+https://www.youtube.com/watch?v=d1NMad-1iC4 
+https://www.youtube.com/watch?v=exrc_rLj5iw&t=848s 
+https://www.youtube.com/watch?v=Nt-qa_LlUH0 
+https://www.youtube.com/watch?v=iLWTnMzWtj4 
+
+ 

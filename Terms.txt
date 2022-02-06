@@ -1,0 +1,8 @@
+Autoboxing
+    ArrayLists only hold Object, not primitive types. So if we pass int 2 to .add(2) method , it will be converted to Integer Object(2).
+Random access data structures
+    Each element is independent of the one before or after, meaning getting the certain element did not relay any of others contained in the data structure.
+Sequential access data structures
+    Sequential access data structure can only be accessed in the particular order, and each elemet depends on the others, and may only be getted through those other elements.
+Starvation of callback/task queue 
+    When the microtask creates another microtask and CB-in callback queue cant get his turn to be executed. 

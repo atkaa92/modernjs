@@ -1,0 +1,12 @@
+let person = config.get('person') 
+let street = person && person.address && person.address.street 
+let street = person?.address?.street 
+
+let street = person?.address?.street || true  
+(If the value of street is false, state will consider between false and true and return true, which is not correct as street exists, it's just false) 
+let street = person?.address?.street ?? true  
+
+Now JS has 7 primitive types number, string, Boolean, undefined, null, symbol, BIGINT 
+and one reference type - object 
+
+ 
