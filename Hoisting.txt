@@ -28,3 +28,5 @@ PS. this function wont be hoisted , as line is not startinf with function or var
 (function test() {
     log(123)
 })
+
+https://www.youtube.com/watch?v=BNC6slYCj50
