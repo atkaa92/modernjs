@@ -4,9 +4,11 @@ Event loop
 Call stuck and memory heap
 GEC
 WEB api
-Connection betwwen web api and gethrough global window object
-Task and microtask queues (Promises BC and mutation observers)
+Connection betwwen web api and GE through global window object
+Task and microtask queues (Promises BC, like fetch and mutation observers - render steps)
 Starvation (settimeout vs normal loop as stravation example)
+60.6 ms or 60frames per second, async loop not blocking repaint of screen, render steps, settimeout is not render blocking
+
 EC - Memory component (variable environment) and Code component (thread of execution)
 Memory creation and code execution phases . 
 1. Create global object 

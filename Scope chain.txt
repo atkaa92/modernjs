@@ -8,3 +8,5 @@ Simplly it means where the code is phiscally writtrn. So where is function is wr
 Lexical parent means in which envirement function exists
 
 So going throw this Lexical envirement known as Scope chain.
+
+https://www.youtube.com/watch?v=d1NMad-1iC4 
