@@ -1,5 +1,5 @@
 Block in JS is defined by curly braces {}, it used to combain multiple JS statements into one group.
-The usage of this to give JS multiple statements wher it expects only one.
+The usage of this to give JS multiple statements when it expects only one.
 E.g. if(condition) {}
 Initially IF expects one statemet, for example variable assignement, 
 instead we can use block to execute multiple statements.

@@ -1,2 +1,0 @@
-The envierement srounding the function where it phiscally written.
-Execution context tells us which lexical envierement is currently runnning.

@@ -6,6 +6,8 @@ and if variable is missing it will throw reference error of not defined.
 Lexical envirement means Local memory plus reference to Lexical envirement of the Lexical parent, which itself contains Local+Lexical, up to GEC.
 Simplly it means where the code is phiscally writtrn. So where is function is written , not called.
 Lexical parent means in which envirement function exists
+The envierement srounding the function where it phiscally written.
+Execution context tells us which lexical envierement is currently runnning.
 
 So going throw this Lexical envirement known as Scope chain.
 

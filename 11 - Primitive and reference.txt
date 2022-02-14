@@ -1,5 +1,11 @@
 JS engine has two type of data structures to allocate memory` stack and heap.
 
+Primitives are put at the bottom of the stack (in variable envirement). 
+For the reference type we are putting pointer to the stack. Technically that is still primitive.
+Stack is kind of ordered and working with that is really fast. Heap is mess.
+When method is done stack will be cleared. 
+With heap we need garbage collector to go through and find data which doesn't have pointer anymore. (directly to stack or inbetween)
+
 Stack - static memory allocation
 Stack is designed to deal with primitives, where all the primitive types will be allocated. 
 When it comes to object stack accepts the pointer(address, reference) of that object.
@@ -15,6 +21,19 @@ It takes a little bit longer to access the actual value.
 All primitive types are passed by value, and they are copied by their value 
 Objects(arrays) are passed by reference and the are copied by their reference  
 When we pass as reference technically we are still passing by value but that value is a reference to that data 
+let a = 7
+let c = a (7)(we will just copy value of a to c)
+a = 8 (wont affect to c)
+
+let x = [1, 2] (0x01)
+let y = x (0x01)(will attcha same address to the memory space)
+y.push(3)(will affect also to x)(as pointer will remain the same)
+x === y true (0x01 === 0x01)
+y = [1, 2](0x02)(this is totally new array with new address, override)
+x === y false (0x01 !== 0x02)
+
+Passing array to function which will change that array(not reassiging) will affect to original array as we are passing pointer of that arrar not the actual value.
+With primitive types we are passing copy of that variable, so changes will not affect to the original one.
 
 https://www.youtube.com/watch?v=IX3fDYz0WyM 
 https://www.youtube.com/watch?v=-hBJz2PPIVE 

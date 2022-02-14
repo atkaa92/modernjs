@@ -6,8 +6,6 @@
 // ------------------ 7 --------------------
 // Variables contain letter, number, $, _
 // Cant start with number
-// Cant declear undefined const (just declear without value)
-// Const can be changed but not reassigned
 
 // ------------------ 8 --------------------
 // JS has two data types ` primitive and reference
@@ -21,17 +19,10 @@
 // Length of number is undefined
 // Type of NaN is number
 
-// ------------------ 22 -------------------
-// Window is a global object of browser envirement
-
 // ------------------ 32 -------------------
 // Event bubling and delegation
 // Bubling - eg. buble click event up, throw dom tree for all parents
 // Delegation - put event on parent and get target by condition throw the childs
-
-// ------------------ 33 -------------------
-// Localstorage needs to be cleared manually, sessionstorage will be cleard after browser close
-// Other then this they are the same
 
 // ------------------ 45 -------------------
 // JS has a lot of build in constractors, eg.
@@ -66,4 +57,126 @@
 // MAPS = key-value pairs - can use ANY type as a key or value
 // SETS - Store unique values of any type
 
+// Desturcturing gives us an easy way to assign and extruct variables arrays and objects
+
+// Destructuring Assignment
+// let a, b;
+// [a, b] = [100, 200];
+// Rest pattern
+// [a, b, c, ...rest] = [100, 200, 300, 400, 500];
+
+// ({ a, b } = { a: 100, b: 200, c: 300, d: 400, e: 500 });
+// ({ a, b, ...rest} = { a: 100, b: 200, c: 300, d: 400, e: 500 });
+
+// Array Destructuring
+
+// const people = ['John', 'Beth', 'Mike'];
+
+// const [person1, person2, person3] = people;
+
+// console.log(person1, person2, person3);
+
+// Parse array returned from function
+// function getPeople() {
+//   return ['John', 'Beth', 'Mike'];
+// }
+
+// let person1, person2, person3;
+// [person1, person2, person3] = getPeople();
+
+// console.log(person1, person2, person3);
+
+// Object Destructuring
+
+// const person = {
+//   name: 'John Doe',
+//   age: 32,
+//   city: 'Miami',
+//   gender: 'Male',
+//   sayHello: function(){
+//     console.log('Hello');
+//   }
+// }
+
+// Old ES5
+// const name = person.name,
+//       age = person.age,
+//       city = person.city;
+
+// New ES6 Destructuring
+// const { name, age, city, sayHello } = person;
+
+// console.log(name, age, city);
+
+// sayHello();
+
 A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern functionality on older browsers that do not natively support it.
+
+// Module pattern allows us to break up parts of our code info self contain modules with private variables and functions
+
+// Singletone object is anonymous and it can only return one instence of an object at a time
+// Repeated call will just return the same instance
+
+// Factory pattern is a way of creating an interface for creating objects, 
+// but we can let subclasses define which class to instantiate
+
+// Observer pattern allowes us to subsribe and unsubscribe to certain events or certain functionality
+
+// Iterators like an advanced loops that can be like paused and return multiple values 
+// Generators like a function that can be like paused and return multiple values 
+// They are doing quite the same, doing the same but different way
+
+// Iterator Example
+// function nameIterator(names) {
+//   let nextIndex = 0;
+
+//   return {
+//     next: function() {
+//       return nextIndex < names.length ?
+//       { value: names[nextIndex++], done: false } :
+//       { done: true }
+//     }
+//   }
+// }
+
+// // Create an array of names
+// const namesArr = ['Jack', 'Jill', 'John'];
+// // Init iterator and pass in the names array
+// const names = nameIterator(namesArr);
+
+// console.log(names.next().value);
+// console.log(names.next().value);
+// console.log(names.next().value);
+// console.log(names.next().value);
+
+// Generator Example
+// function* sayNames() {
+//   yield 'Jack';
+//   yield 'Jill';
+//   yield 'John';
+// }
+
+// const name = sayNames();
+
+// console.log(name.next().value);
+// console.log(name.next().value);
+// console.log(name.next().value);
+// console.log(name.next().value);
+
+// ID Creator
+// function* createIds() {
+//     let index = 1;
+  
+//     while(true) {
+//       yield index++;
+//     }
+//   }
+  
+//   const gen = createIds();
+  
+//   console.log(gen.next().value);
+//   console.log(gen.next().value);
+//   console.log(gen.next().value);
+//   console.log(gen.next().value);
+//   console.log(gen.next().value);
+//   console.log(gen.next().value);

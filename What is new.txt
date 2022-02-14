@@ -9,4 +9,8 @@ let street = person?.address?.street ?? true
 Now JS has 7 primitive types number, string, Boolean, undefined, null, symbol, BIGINT 
 and one reference type - object 
 
- 
+'use strict' on the top of .js file will prevent of pushing function scope undecliared variables to global scope
+function alo () {
+    asa = 'asa'
+}
+it can be added to function which will burn all conections with global object, that means this will be undefined insde function
