@@ -270,8 +270,7 @@ findPerson.check('Arthur')
 //     }
 // }
 
-// Object.assign(Puinguin.prototype, canWalk)
-// Object.assign(Puinguin.prototype, canSwim)
+// Object.assign(Puinguin.prototype, canWalk, canSwim)
 
 // class Gus extends Bird {
 //     constructor(name) {
@@ -279,9 +278,7 @@ findPerson.check('Arthur')
 //     }
 // }
 
-// Object.assign(Gus.prototype, canWalk)
-// Object.assign(Gus.prototype, canSwim)
-// Object.assign(Gus.prototype, canFly)
+// Object.assign(Gus.prototype, canWalk, canSwim, canFly)
 
 // class Chiken extends Bird {
 //     constructor(name) {
