@@ -19,9 +19,9 @@ The code sholdn't know/care that we have a sunbclass, and it should work as if i
 Interface Segregation Principle
 Many client-specific interfaces are better than one general-purpose interface.
 Whenever we have an interface everything that emplemets that interface should be used.
-Each our object or class only ever implements information that it can actually use and it doesn't implement anything else that it can't use
+Each our software entity only ever implements information that it can actually use and it doesn't implement anything else that it can't use
 
 Dependency Inversion Principle
-Depend upon abstractions, [not] concretions.
+Depend upon abstractions, not concretions.
 Our high level code (main logic, main class) shoudn't depend on low level implemeted dependencies (EG external API),
 so don't depend how globbing or onex work, depend on our interface/class wich will work with API's
