@@ -7,3 +7,21 @@ Arrow functions are lexically bind. They has lexical behavior. That means it wil
 If we have function constructers executed using the new operator window objcet passing chain as `this` will be broken, as new operator creates its own context. 
 So, if we are calling nested functions from global scope 'this' will be pointed to the first function 'this' which is 'window'. 
 With constructor functions inner function will inherit whatever the parent function context is. 
+
+this is not lexically scoped. Its not matter where ist written, it matters how the function was called.
+SO this keyword is dynamically scoped.
+In JS this keyword defaults to window object.
+
+const obj = {
+    name: 'alo',
+    sayHI() {
+        log('hi', this) - refers to obj
+        var seyHiAgain = function() {
+            log('hiAgain', this) - refers to default window
+        }
+        seyHiAgain()
+    }
+}
+
+To make seyHiAgain refert to obj we need to use Arrow function, as Arrow functions are lexically bound, which means Arrow functions has a lexical this behavior.
+Or just simpally bind necessary this to seyHiAgain function or use self option.

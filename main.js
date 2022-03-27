@@ -20,7 +20,7 @@
 // let a = new alo(12)
 // a.login()
 // a.logout()
-// // console.log(a);
+// console.log(a);
 
 // let b = new AAA('sss')
 // b.loga()
@@ -29,18 +29,18 @@
 // let obj = { name: 'alo'}
 
 
-// // console.log(Object.prototype === Function.__proto__);
-// // console.log(b.__proto__ === AAA.prototype);
-// // console.log(AAA.prototype);
-// // console.log(AAA.constructor);
-// // console.log(alo.prototype);
-// // console.log(alo.__proto__);
+// console.log(Object.prototype === Function.__proto__);
+// console.log(b.__proto__ === AAA.prototype);
+// console.log(AAA.prototype);
+// console.log(AAA.constructor);
+// console.log(alo.prototype);
+// console.log(alo.__proto__);
 
 // let myObj = {}
-// // console.log(myObj.constructor);
-// // console.log(myObj.constructor.prototype);
-// // console.log();
-// // console.log(myObj.__proto__);
+// console.log(myObj.constructor);
+// console.log(myObj.constructor.prototype);
+// console.log();
+// console.log(myObj.__proto__);
 // console.log(Function.prototype);
 
 // let c = function(){
@@ -48,21 +48,41 @@
 // }
 
 // let d = Object.getPrototypeOf(Function)
-// // console.log(d);
+// console.log(d);
 
 // let f = Object.getOwnPropertyNames(Function.prototype)
 // console.log(arr);
 
+// var alo = 'one';
+// (() => {
+//     console.log(alo);
+//     // var alo = 'two'
+// })();
 
-var a = 7
-let b = 8
-function alo(a) {
-    console.log(a)
+// function one() {
+//     var alo = 'alo'
+//     two()
+// }
+// function two() {
+//     console.log(alo);
+// }
+
+// one()
+// var i = 10;
+// for (var i = 0; i < 4; i++) {}
+// console.log(i);
+
+
+// let a = 7
+var b = 8
+let c = 7
+
+{
+    let c = 8
 }
-alo(7)
-window.addEventListener('beforeunload', function (e) {
-    console.log(e)
-    e.preventDefault();
-    e.returnValue = '';
-    return false
-});
+// const one = 'one'
+//     console.log(one);
+//     console.log(this.one);
+// function alo() {
+// }
+// alo()

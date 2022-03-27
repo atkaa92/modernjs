@@ -1,5 +1,5 @@
-Function statement - basic function keyword plus function name, also known as function declaration. We cant imedialely call function declaration like IIFEs.
-Function expression - assigning function to a variable. Here function acts like a value.
+Function statement - basic function keyword plus function name, also known as function declaration. Define at parsetime (creation phase). We cant imedialely call function declaration like IIFEs.
+Function expression - assigning function to a variable. Here function acts like a value. Define at runtime (execution phase).
 Anonymous function - function without a name. Just creation anonymous function will throw a Syntax Error.
 Named function expression - same as function expression, but with assigned name. It can't be called by name.
 First class functions - the ability to use functions as values is known as FCF. Assign them to variables, pass to another function, return from function.
@@ -22,3 +22,16 @@ function alo () {
     log('alo')
 }
 alo() === alo.call()
+
+
+'use strict' on the top of .js file will prevent of pushing function scope undecliared variables to global scope
+function alo () {
+    asa = 'asa' (asa is not defined)
+}
+it can be added to function which will burn all conections with global object, that means this will be undefined insde function
+
+var a = function b () {}
+b() (b is not defined)
+var a = function b () { log(b)} (b is defined here, in FEC)
+
+function currrying - to use bind method to create a new function with predifined parameter, like multiply(x, y) and multiplyByTwo(2, y) 

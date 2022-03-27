@@ -1,0 +1,8 @@
+'use strict' on the top of .js file will prevent of pushing function scope undecliared variables to global scope
+function alo () {
+    asa = 'asa' (asa is not defined)
+}
+
+var a = function b () {}
+b() (b is not defined)
+var a = function b () { log(b)} (b is defined here, in FEC)
