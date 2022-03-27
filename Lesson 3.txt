@@ -1,0 +1,60 @@
+EC has two components 
+1. Memory component (variable environment) 
+2. Code component (thread of execution)
+
+Zero code of JS GEC
+Global and this
+
+So, in the creation phase 4 things happens 
+1. Create global object 
+2. Create object called this 
+3. Set up memory space for variables and function declarations 
+4. Assign variable declarations a default value of undefined, while placing all functions directly in memory 
+
+FEC
+The only difference between GEC and FEC is instead of creating global object FEC is creating arguments object.  
+In FEC each argument will be allocated like normal variable declarations, but with actual passed value already assigned to it (skipping hoisting).  
+return or } pass pointer and value to parent EC
+
+
+All the EC after creation is pushing to call stack, which has multiple names 
+* Call stack 
+* Execution context stack 
+* Program stack 
+* Control stack 
+* Runtime stack 
+* Machine stack 
+
+
+During the creation phase of the execution context, we set any variable declaration a default value of undefined and place any function declaration in memory. 
+This term in JS is called Hoisting.  
+So hoisting is a process of allocating memory for variables and functions,
+assigning a variable declaration a default value of undefined and place all functions in memory during the creation phase (variable envierement). 
+Function assignment is not a part of hoisting like function declaration. 
+With calling function assignment before assignment we will get 'Type Error', as we are calling 'undefined ()', 
+With calling not decleared variable we will get ‘ReferenceError’ 
+Variable assignement without declaration creates that variable in global scope.
+Hoisting - variable declaration and function declaration are processed before any code is executed.
+So declearing function or variable anywhere in the code is equal to declear them at the top, for current scope.
+
+Let and Const are not hoisted like Var, and will not print out value of undefined or Type Error
+For variable with 'var' declaration the memory is allocated for that variable and attached to Global object.
+But in case of 'let' and 'const' memory allocation is happening the same way (so they are hoisted),
+but they are spaced in a different memeory space then Global - Script (wasn't attached to Global object),
+and they can't be accessed before initialization (assiging value to them).
+So 'Temporal dead zone' is a time between 'let' variable is hoisted/decleared and initialized.
+Simpally all the code before 'let' initialization.
+Calling Let variable before in Temporal dead zone will throw ReferenceError of initialization, 
+but they still have value of undefined in a different memory scope then Global.
+Let and Const are not present in Global object (for browser in window object). 
+
+Dublicate declaration of 'Let' in the same scope is a SyntaxError, even if second declaration is with 'Var', which is compelitely stop ruanning a code, even a single row.
+Const can't be just decleared without initialization, it will again throw SyntaxError, it should have value attched.
+Reassiging const vale will throw TypeError.
+
+PS. this function wont be hoisted , as line is not startinf with function or var keyword
+(function test() {
+    log(123)
+})
+
+https://www.youtube.com/watch?v=BNC6slYCj50

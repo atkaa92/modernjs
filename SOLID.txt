@@ -1,0 +1,27 @@
+Single Responsibility Principle
+There should never be more than one reason for a class to change. In other words, every class should have only one responsibility
+So if we change smth we need to change in one place, one function, one class etc.
+Other logic shouldn't be effected if its not directly related to the change.
+
+Open/Closed Principle
+Software entities (class, module, function ...) should be open for extension, but closed for modification
+Open - We should have an option to add/change data ... 
+Close - ... which shoudn't affect on main logic which works with that date
+Logic should just remain the same but has ability to work with new/changed data.
+So instead of changing old code we need to create new code which will work with old code (componentIs <-> if...elseif...else) 
+
+Liskov Substitution Principle
+Functions that use pointers or references to base(parent) classes must be able to use objects of derived(child) classes without knowing it
+If S is a subtype of T, then objects of type T may be replacedwith objects of type S
+So if we have a function that exepts a class every single subclass of that class must also be able to enter that function and work properly.
+The code sholdn know/care that we have a sunbclass, and it should work as if it was the parent class
+
+Interface Segregation Principle
+Many client-specific interfaces are better than one general-purpose interface.
+Whenever we have an interface everything that emplemets that interface should be used.
+Each our object or class only ever implements information that it can actually use and it doesn't implement anything else that it can't use
+
+Dependency Inversion Principle
+Depend upon abstractions, [not] concretions.
+Our high level code (main logic, main class) shoudn't depend on low level implemeted dependencies (EG external API),
+so don't depend how globbing or onex work, depend on our interface/class wich will work with API's
