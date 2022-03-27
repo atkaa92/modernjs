@@ -1,39 +1,39 @@
 // -------------------------------------- Single Responsibility Principle --------------------------------------
 // WRONG
-// class SayHello {
+// class FindPerson {
 //     constructor(name) {
 //         this.name = name
 //     }
 
-//     hello(personName) {
-//         if(personName === this.name) this.logHello(personName)
+//     check(personName) {
+//         if(personName === this.name) this.logResult(personName)
 //     }
     
-//     logHello(personName) {
-//         console.log(`Hello ${personName}`)
+//     logResult(personName) {
+//         console.log(`${personName} found`)
 //     }
 // }
 
 // RIGHT
-class SayHello {
+class FindPerson {
     constructor(name) {
         this.name = name
     }
 
-    hello(personName) {
-        if(personName === this.name) logHello(personName)
+    check(personName) {
+        if(personName === this.name) logResult(personName)
     }
 }
 
-function logHello(personName) {
-    console.log(`Hello ${personName}`)
+function logResult(personName) {
+    console.log(`${personName} found`)
     //or send notitication
 }
 
-// const sayHello = new SayHello('Karen')
-// sayHello.hello('Ani')
-// sayHello.hello('Karen')
-// sayHello.hello('Arthur')
+const findPerson = new FindPerson('Arthur')
+findPerson.check('Ani')
+findPerson.check('Karen')
+findPerson.check('Arthur')
 
 // -------------------------------------- Open/Closed Principle --------------------------------------
 // WRONG
@@ -344,51 +344,51 @@ function logHello(personName) {
 // delivary.deliverToUSA(12)
 
 //RIGHT
-class Delivary {
-    constructor(delivaryAgent){
-        this.delivaryAgent = delivaryAgent
-    }
-    deliverToUSA(wight){
-        this.delivaryAgent.deliver(wight, 'USA')
-    }
-    deliverToRussia(wight){
-        this.delivaryAgent.deliver(wight, 'Russia')
-    }
-}
+// class Delivary {
+//     constructor(delivaryAgent){
+//         this.delivaryAgent = delivaryAgent
+//     }
+//     deliverToUSA(wight){
+//         this.delivaryAgent.deliver(wight, 'USA')
+//     }
+//     deliverToRussia(wight){
+//         this.delivaryAgent.deliver(wight, 'Russia')
+//     }
+// }
 
-class GlobbingAgent {
-    constructor(user) {
-        this.globbing = new Globbing(user)
-    }
-    deliver(wight, destination) {
-        this.globbing.makeDelivary(wight*1000, destination)
-    }
-}
+// class GlobbingAgent {
+//     constructor(user) {
+//         this.globbing = new Globbing(user)
+//     }
+//     deliver(wight, destination) {
+//         this.globbing.makeDelivary(wight*1000, destination)
+//     }
+// }
 
-class OnexAgent {
-    constructor(user) {
-        this.user = user
-        this.onex = new Onex()
-    }
-    deliver(wight, destination) {
-        this.onex.makeDelivary(this.user, wight, destination)
-    }
-}
+// class OnexAgent {
+//     constructor(user) {
+//         this.user = user
+//         this.onex = new Onex()
+//     }
+//     deliver(wight, destination) {
+//         this.onex.makeDelivary(this.user, wight, destination)
+//     }
+// }
 
-class Globbing {
-    constructor(user){
-        this.user = user
-    }
-    makeDelivary(wight, destination) {
-        console.log(`${this.user} delivered ${wight/1000}kg to ${destination} with Globbing`)
-    }
-}
+// class Globbing {
+//     constructor(user){
+//         this.user = user
+//     }
+//     makeDelivary(wight, destination) {
+//         console.log(`${this.user} delivered ${wight/1000}kg to ${destination} with Globbing`)
+//     }
+// }
 
-class Onex {
-    makeDelivary(user, wight, destination) {
-        console.log(`${user} delivered ${wight}kg to ${destination} with Onex`)
-    }
-}
+// class Onex {
+//     makeDelivary(user, wight, destination) {
+//         console.log(`${user} delivered ${wight}kg to ${destination} with Onex`)
+//     }
+// }
 
-const delivary = new Delivary(new GlobbingAgent('John')) 
-delivary.deliverToUSA(12)
+// const delivary = new Delivary(new GlobbingAgent('John')) 
+// delivary.deliverToUSA(12)
