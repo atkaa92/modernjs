@@ -12,9 +12,9 @@ So instead of changing old code we need to create new code which will work with 
 
 Liskov Substitution Principle
 Functions that use pointers or references to base(parent) classes must be able to use objects of derived(child) classes without knowing it
-If S is a subtype of T, then objects of type T may be replacedwith objects of type S
+If CHILD is a subtype of PARENT, then objects of type PARENT may be replaced with objects of type CHILD
 So if we have a function that exepts a class every single subclass of that class must also be able to enter that function and work properly.
-The code sholdn know/care that we have a sunbclass, and it should work as if it was the parent class
+The code sholdn't know/care that we have a sunbclass, and it should work as if it was the parent class
 
 Interface Segregation Principle
 Many client-specific interfaces are better than one general-purpose interface.

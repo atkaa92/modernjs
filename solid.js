@@ -1,34 +1,34 @@
 // -------------------------------------- Single Responsibility Principle --------------------------------------
 // WRONG
-// class FindPerson {
-//     constructor(name) {
-//         this.name = name
-//     }
-
-//     check(personName) {
-//         if(personName === this.name) this.logResult(personName)
-//     }
-    
-//     logResult(personName) {
-//         console.log(`${personName} found`)
-//     }
-// }
-
-// RIGHT
 class FindPerson {
     constructor(name) {
         this.name = name
     }
 
     check(personName) {
-        if(personName === this.name) logResult(personName)
+        if(personName === this.name) this.logResult(personName)
+    }
+    
+    logResult(personName) {
+        console.log(`${personName} found`)
     }
 }
 
-function logResult(personName) {
-    console.log(`${personName} found`)
-    //or send notitication
-}
+// RIGHT
+// class FindPerson {
+//     constructor(name) {
+//         this.name = name
+//     }
+
+//     check(personName) {
+//         if(personName === this.name) logResult(personName)
+//     }
+// }
+
+// function logResult(personName) {
+//     console.log(`${personName} found`)
+//     //or send notitication
+// }
 
 const findPerson = new FindPerson('Arthur')
 findPerson.check('Ani')
