@@ -21,4 +21,10 @@ But two __proto__ can be equal if they are pointed to same prototype.
 Using prototyp helps us to keep seperate Class functions from instances created on that Class, do not repeat them for each instance, 
 but still give them option to access that functions.
 
-Not using the prototyp will force us set all function in the memory over and over when we are creating new instance.
+Not using the prototype will force us set all function in the memory over and over when we are creating new instance.
+
+Inheritence is an object getting access to the properties and methodes of another object.
+
+Everything in JS get created from the Base Object.
+
+__proto__ is simpally a pointer to up the chain prototype Object.

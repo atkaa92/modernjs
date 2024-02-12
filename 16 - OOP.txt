@@ -1,0 +1,45 @@
+Factory functions - This functions create Objects. With this approach we are repeating function in memory which are same for all objects.
+Object.create - can fix the problem above just adding metodes to the object which will be returned from factory function.
+Constructor functions - add arguments to this. New keyword in JS automatically returns the object that we have inside the Constructor function.
+    SO any function that invoked with new keyword called Constructor function.
+    When we use the new keyword instead of this pointing to Window object, like it usually dose, the new keyword changes what this is pointing to,
+    when new EC is created. Instead the new keyword will force this to point to the object that we just created.
+    Except of null and undefined we have Constructor function for everything.
+Classes - Classes are blueprint of what we want for object to be looks like. This approach is the closest that JS can use for OOP.
+    This is syntactical suger for JS to act like OOP. We are still using prototyple inheritence.
+    In JS Classes are still objects(like everything).
+    Yes JS has Classes, but as syntactical suger, but class keyword is still prototyple inheritence(sudo clasical inheritence).
+
+Inheritence - passing knowalage down. We want need super() if subclass won't accecpt new arguments.
+    Inheritence in JS doesn/t actually copy our functionality from parent class, instead it simpally links up the prototype chain.
+    Objects inheriting form other objects. There is no tecnical classes.
+
+Privat properties in JS classes
+class Alo {
+    #privateAlo = 'privateAlo'
+    constructor(alo) {
+        this.alo = alo
+    }
+    sayAlo() {
+        console.log(this.alo);
+        this.#sayPrivateAlo()
+    }
+    #sayPrivateAlo() {
+        console.log(this.#privateAlo);
+    }
+}
+
+const alo = new Alo('Name')
+alo.sayAlo()
+console.log(alo.privateAlo)
+
+Encapsulation - keeping properties and methods private inside a class, so that they are not accessible from outside that class.
+    This will keep code that's outside the class from accidentally manipulating internal methods and properties.
+    In order to communicate with the object, you will need to utilize the methods provided.
+Abstraction - this means just hide the complexity.
+    Abstraction is the concept of wrapping up complex actions in simple verbs.
+    It is the process of selecting data from a larger pool to show only the relevant details to the object. 
+Inheritance - Inheritance is the ability of one object to acquire some/all properties of another object.
+    Inheritance makes all properties and methods available to a child class.
+    This allows us to reuse common logic.
+Polymorphism - many forms. The ability to overwrite and call the same method inherited from a parent class.

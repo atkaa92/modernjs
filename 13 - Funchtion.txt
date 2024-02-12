@@ -7,7 +7,8 @@ Callback function - a function which passed into another function as an argument
 Higher order functions - a function which take another function as an argument or returns a function from it.
 Constructor function - a function which used in JS to create an object. Arrow function can't be Constructor functions as they dont have this keyword. 
 IIFEs - imedialely invokable function expression - a function that will be imedialely called. IIFEs known as function expression.
-IIFEs used to avoit global variables issues, as they are ruanning imedialely and haveig thei onw FEC or scope.
+IIFEs used to avoid global variables issues, as they are ruanning imedialely and haveig thei onw FEC or scope.
+Factory functions - functions which creating Objects.
 Map - used to transorme an existing array by given function and return new array.
 Filter - used to filter inside the given array and return new array.
 Reduce - used to take all the elements and come of the single value of them, with the logic inside the CB function.
@@ -34,4 +35,12 @@ var a = function b () {}
 b() (b is not defined)
 var a = function b () { log(b)} (b is defined here, in FEC)
 
-function currrying - to use bind method to create a new function with predifined parameter, like multiply(x, y) and multiplyByTwo(2, y) 
+function currying - to use bind method to create a new function with predifined parameter, like multiply(x, y) and multiplyByTwo(2, y) 
+
+Functions are special type of Objects which are called 'Callable Object',
+with bracket notation (), for calling function, it has optional name property, an more properties like call, bind, applay.
+
+In JS functions are first class citizens.
+1. functions can be assigned to variables or object property
+2. functions can be passed as arguments
+3. functions can be returned as values from other functions

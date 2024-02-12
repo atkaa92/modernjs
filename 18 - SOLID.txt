@@ -1,0 +1,51 @@
+Software entities - class/function/module
+
+Single Responsibility Principle
+The main idea of the single responsibility principle is that every software entity should have only one responsibility. 
+This means that the code should only have one single reason to change. 
+* class ProductTracker{} should only track count, and if count is 0 it should not notify about that by calling its own method,
+    instead it should use method from class Notifyer{}
+*** break big component into small componentes, combine useState/useeffect/useMemo into custom hooks
+
+Open/Closed Principle
+Every software entity should be open for extension, but closed for modification
+Open - We should have an option to add data ... 
+Close - ... which shoudn't affect on main logic which works with that date
+Logic should just remain the same but has ability to work with new/changed data.
+Big switch/case or if/else is a sign that this rule most likely violated
+* instead of having addInputIntoDom() function with multiple switch/case options to add inputs to for every input type
+    we need to have classes for every input type with same print() function which will take care of that,
+    and addInputIntoDom() function will only call that print() function in loop for every input class
+*** if Button component should also print icon, instead of passing icon conditional param to reder icon inside Buttin component, 
+    you should pass Icon component dircetly , so we can render every single icon without changinc code inside Button component.
+
+Liskov Substitution Principle
+If CHILD is a subtype of PARENT, then objects of type PARENT may be replaced with objects of type CHILD.
+This essentially means that a class is interchangeable with its subclasses.
+* if we have class Car{} with function engineNoise() and subclasses class Bmw{} and class Tesla{}, 
+    anywhere we call engineNoise() on car should be interchangeable with Bmw and Tesla, 
+    but as Tesla will throw error for that function, that means we elemenate this principle.
+    Solution: add two more classes class ElectircCar{} and class OliCar{}
+    Problem: if there is another hybrid car this wont work (then we need Composition above Inheritance )
+*** if we have CustomInput component which extends from input element, each input element should be interchangeable with CustomInput component
+    Solution: pass all properties to input element that CustomInput get <input {...props} />
+
+Interface Segregation Principle
+Every class only ever implements information(methods/props) that it can actually use and it doesn't implement anything else that it can't use.
+* if we have class Animal{} with functions fly() swim() run() and subclasses class Dog{} and class Gus{}
+    all good with class Gus{} as its can fly/swim/run, but class Dog{} will elemenate this principle as its cant fly
+    Solution1: Create mid level classes class LandAnimal{} and class WaterAnimal{}
+    Solution2: Use composition instead of inheritance, so have seperate functions fly/swim/run() and add necessary once to classes prototype
+*** componentes should not depent on props they not gonna use, Image componenet should not get full product data to just render product.img
+
+Dependency Inversion Principle
+The main idea is that any class that uses a dependency should only ever use the dependency through a predefined interface
+Our high level code (main class) shoudn't depend on low level implemeted dependencies (EG external API)
+* if we have class Taxi{} which uses yandex API to manage rides, and you want to switch to uber API you need to chang functions logic insde class Taxi{},
+    so our class Taxi{} depends on low level API implementation
+    Solution: create two API wrapper classes like class YandexWrapper{} and class UberWrapper{} with similar ride() function, 
+    which will manage individual API implementation, this way class Taxi{} will accept wrapper class as param and will call their ride() method.
+*** if we have Form componenet which submits username/password to current url and you need to control url instead of changing url or adding if/else statement, 
+    we can just have LoginForm componenet which will render Form componenet and pass onSubmit function to Form which will blindly executed
+
+https://www.youtube.com/watch?v=JVWZR23B_iE&list=PLZlA0Gpn_vH9kocFX7R7BAe_CvvOCO_p9

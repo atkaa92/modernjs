@@ -1,0 +1,35 @@
+Undefined is absence of definition.
+Null is absence of value.
+Arrays and functions are objects. Typeof arrar = object, typeof function = function.
+
+Primitive type is a data that only represents a single value (in memory).
+A variable of a primitive type directly contains the value of that type.
+
+Non primitive type doesn't direclty contain the value.
+
+When we trying to access a property of a primitive, JS creates an object version of that primitive (true = new Boolean(true))
+
+Primitive types are immutable, we cant change the value, instead we just completly removing and creating new one.
+Create new , not modify. This process called pass by value. Copy the value and set in a memory as a new value.
+
+Reference types can be changed. Creating new one will just has the same pointer to an old one.
+With this we are saving heap form cointaining the same object multiple times.
+let a = [1,2]
+let b = [].concat(a) simple way to clone one level array
+
+let a = {a: 'a'}
+let b = {...a}
+let c = Object.assign({}, a) simple ways to clone one level object
+
+One level colne in JS calles shallow cloning. Nasted clone - deep cloning.
+
+let a = {a: {deep: 'deep'}}
+let b = JSON.parse(JSON.stringify(a)) simple ways to clone nasted object (preformence issue)
+
+Passing array/object to function which will change that array/object(not reassiging) will affect to original array as we are passing pointer of that arrar/object not the actual value.
+
+Type coercion
+Language converting a certain type to another  1 == type'1', for engine it is 1 == 1
+In JS type coercion happens when we are using == (double equals), if(1) or if(0)
+PS. '1' == [1], '1,2' == [1,2], if(false) only for if(false), if(''), if(0), if(null), if(undefined) Other cases its true.
+PS. NAN !== NAN, but Object.is(NAN, NAN) is true

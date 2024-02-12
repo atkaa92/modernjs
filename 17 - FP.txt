@@ -1,0 +1,41 @@
+In FP data and logic are seperated.
+FP - build programs with banch of very small, very reuseable, pridictable, pure functions.
+Pure functions
+ 1. Shouldn't have side effect, nothing should be updated outside of function scope.
+ 2. Referential transparency, same input always should give same output.
+
+Idempotent functions
+ 1. Same input always should give same output, no matters how many time we call that function
+ 2. Has side effect
+
+Imperative code - code tells us what's going to happen and how (step by step), example for loop
+Declarative code - code tells us what's going to happen, example foreach loop
+Declarative code is always going to end up being processed by imperative code.
+
+Immutability - not changing the data(state). 
+    Function which accepts data will caopy that data for further changes, won't change the original one.
+
+Structural shareing - when copying big array/object memory will be filled with only changed data, 
+    Data which remains same for old and new array/object won't be added to memory more then once.
+
+Currying - when function instead of taking multiple paramters, takes parameter at a time.
+    We can use currrying to create many utility functions like multiplyByTwo.
+    const multiply = (a,b) => a*b
+    const multiplyBy = (a) => (b) => a*b
+
+Partial application - way to partially apply a function.
+    Call the function once, with first argument, and then apply the rest of arguments to it.
+    const multiply = (a,b,c) => a*b*c
+    const curryingMultiplyBy = (a) => (b) => (c) => a*b*c
+    const partialMultiplyBy5 = multiply.bind(null, 5)
+    partialMultiplyBy5(6, 7)
+
+Memoization - is a specific form of cacheing which applya with cacheing the return value based on its parameters.
+
+Compose and Pipe functions
+const compose = (f, g) => (a) => f(g(a))
+const pipe = (f, g) => (a) => g(f(a))
+const multiplyBy3AndAbsolute = compose((num) => num*3, Math.abs)
+console.log(multiplyBy3AndAbsolute(-50))
+
+Arity - means a number of arguments a function takes

@@ -1,0 +1,252 @@
+* Design patterns are formalized best practices that the programmer can use to solve common problems when designing an application.
+* There are 3 main types of design patterns: Creational Structural Behavioral
+* The Model-View-Controller (MVC) pattern considered an architectural pattern rather than a design pattern in the traditional sense.
+
+{ *** Module Pattern(Creational and Structural)
+    The Module Pattern is a design pattern used in JavaScript to encapsulate and organize code into reusable modules.
+    In JavaScript, a module is a self-contained unit of code that encapsulates related functionality, variables, and methods.
+    Executed with help of IFFEs.
+    var myModule = (function() {
+        var privateVariable = 'I am private';
+        function privateFunction() {
+            console.log('This is a private function');
+        }
+        return {
+            publicMethod: function() {
+                privateFunction();
+            }
+        };
+    })();
+    myModule.publicMethod();
+}
+
+{ *** Singleton Pattern(Creational)
+    Singleton is a creational design pattern that lets you ensure that a class has only one instance.
+    const Singleton = (function(){
+        let pManager
+        function ProcessManager() { /*...*/ }
+
+        function createProcessManager() {
+            pManager = new ProcessManager()
+            return pManager
+        }
+
+        return {
+            getProcessManager: () => {
+                if(!pManager) pManager = createProcessManager()
+                return pManager
+            }
+        }
+    })()
+
+    const singleton = Singleton.getProcessManager()
+    const singleton2 = Singleton.getProcessManager()
+    console.log(singleton === singleton2) // true
+}
+
+{ *** Factory Pattern(Creational)
+    Factory Pattern is a creational design pattern that provides an interface for creating objects in a superclass.
+    function Developer(name)
+    {
+        this.name = name
+        this.type = "Developer"
+    }
+
+    function Tester(name)
+    {
+        this.name = name
+        this.type = "Tester"
+    }
+
+    function EmployeeFactory()
+    {
+        this.create = (name, type) => {
+            switch(type)
+            {
+            case "developer":
+                return new Developer(name)
+            case "tester":
+                return new Tester(name)
+            }
+        }
+    }
+    const employeeFactory = new EmployeeFactory()
+    const employees = []
+    employees.push(employeeFactory.create("Jim", "developer"))
+    employees.push(employeeFactory.create("John", "tester"))
+}
+
+{ *** Observer Pattern(Behavioral)
+    Defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+    class Subject {
+        constructor() {
+            this.observers = [];
+        }
+        addObserver(observer) {
+            this.observers.push(observer);
+        }
+        removeObserver(observer) {
+            this.observers = this.observers.filter(obs => obs !== observer);
+        }
+        notify(data) {
+            this.observers.forEach(observer => observer.update(data));
+        }
+    }
+
+    class Observer {
+        update(data) {
+            console.log('Received data:', data);
+        }
+    }
+
+    const subject = new Subject();
+    const observer1 = new Observer();
+    const observer2 = new Observer();
+    subject.addObserver(observer1);
+    subject.addObserver(observer2);
+    subject.notify('Hello observers!');
+}
+
+{ *** Decorator Pattern(Structural)
+    The Decorator Pattern is a design pattern used in software development to dynamically add new functionality to an object without altering its structure.
+    You start with a base object that provides some basic functionality.
+    You create decorator objects that wrap around the base object. Each decorator adds a specific behavior or feature to the base object.
+    class Coffee {
+        constructor() {
+            this.description = 'Coffee';
+        }
+        getDescription() {
+            return this.description;
+        }
+    }
+
+    class MilkDecorator extends Coffee {
+        constructor(coffee) {
+            super();
+            this.coffee = coffee;
+            this.description = this.coffee.getDescription() + ', Milk';
+        }
+        getDescription() {
+            return this.description;
+        }
+    }
+
+    let myCoffee = new Coffee();
+    console.log(myCoffee.getDescription()); - Coffee
+    myCoffee = new MilkDecorator(myCoffee); 
+    console.log(myCoffee.getDescription()); - Coffee, Milk
+}
+
+{ *** Facade Pattern(Structural)
+    Facade is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes.
+    The idea of the facade pattern is to create your own API that hides away complex or repetitive code to use the actual API.
+    function getUsers() {
+        return getFetch('https://jsonplaceholder.typicode.com/users')
+    }
+
+    function getUserPosts(userId) {
+        return getFetch('https://jsonplaceholder.typicode.com/posts', { userId: userId })
+    }
+
+    getUsers().then(users => {
+        users.forEach(user => { getUserPosts(user.id).then(posts => { ... }) })
+    })
+
+    function getFetch(url, params = {}) {
+        return axios({ url: url, method: "GET", params: params }).then(res => res.data)
+    }
+}
+
+{ *** Command Pattern(Behavioral)
+    Command Pattern allows to cerate seperate commands(functions) from object which is going to use ii, 
+    combine and chain them, and have option to undo that commands
+    class Calculator {
+        constructor() {
+            this.value = 0
+            this.history = []
+        }
+        executeCommand(command) {
+            this.value = command.execute(this.value)
+            this.history.push(command)
+        }
+        undo() {
+            const command = this.history.pop()
+            this.value = command.undo(this.value)
+        }
+    }
+
+    class AddCommand {
+        constructor(valueToAdd) {
+            this.valueToAdd = valueToAdd
+        }
+        execute(currentValue) {
+            return currentValue + this.valueToAdd
+        }
+        undo(currentValue) {
+            return currentValue - this.valueToAdd
+        }
+    }
+
+    const constructor = new Calculator()
+    constructor.executeCommand(new AddCommand(10))
+    constructor.undo()
+}
+
+{ *** Iterator Pattern(Behavioral) 
+    Iterator Pattern allows to define your own rules of how to traverse some collection of objects/array
+    const items = [1, false, "Devsage", 3.14]
+
+    function Iterator(items){
+        this.items = items
+        this.index = 0
+    }
+
+    Iterator.prototype = {
+        hasNext: function() {
+            return this.index < this.items.length
+        },
+        next: function() {
+            return this.items[this.index++]
+        }
+    }
+
+    const iter = new Iterator(items)
+
+    while(iter.hasNext())
+        console.log(iter.next())
+}
+
+{ *** Strategy Pattern(Behavioral)
+    Strategy Pattern allows to encapsulate a group of closly related strategies(they are just functions).
+    Pattern allows you to swap strategies very easily.
+    function Fedex(pkg) {
+        this.calculate = () => {
+            return 2.45
+        }
+    }
+
+    function UPS(pkg) {
+        this.calculate = () => {
+            return 1.56
+        }
+    }
+
+    function Shipping() {
+        this.company = ''
+        this.setStrategy = company => {
+            this.company = company
+        }
+        this.calculate = pkg => {
+            return this.company.calculate(pkg)
+        }
+    }
+
+    const fedex = new Fedex()
+    const ups = new UPS()
+    const shipping = new Shipping()
+    const pkg = { from: "Alabama", to: "Georgia", weight: 1.56 } // Dummy package
+    shipping.setStrategy(fedex)
+    console.log("Fedex: " + shipping.calculate(pkg))
+    shipping.setStrategy(ups)
+    console.log("UPS: " + shipping.calculate(pkg))
+}

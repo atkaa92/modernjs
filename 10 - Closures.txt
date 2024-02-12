@@ -1,5 +1,5 @@
 Whenever we have function nested inside another function the Inner function is going to create Clouser from the Outer function EC and itself, 
-and whenever Inner is invoked, it can have access to the variable environment of Outer EC through the Clouser Scope. 
+and whenever Inner is invoked, it have access to the variable environment of Outer EC through the Clouser Scope. 
 And while executing the Inner function if it needs the variable that is missing from its FEC it will first look into Clouser Scope (scope chain). 
 
 Whenever function is returnd it remembers his initial Lexical envirement,
@@ -8,3 +8,13 @@ so not only the function is returned, but the clouser which contains function an
 So function alonge with its Lexical envirement bundled together forms a clouser.
 
 Clousers variables are not Garbige collectored.
+
+JS engine knows based on where is code written before we even run the code what variables each function has access to.
+Clouser is combination of function and Lexical envirement from which it was decleared.
+Clouser allows as to not create data inside outer function over and over, but create onec and use in innner function.
+function outer() {
+    const bigArray = []
+    return function() {
+        log(bigArray)
+    }
+}

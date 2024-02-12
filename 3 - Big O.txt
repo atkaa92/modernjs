@@ -1,4 +1,4 @@
-An alogorithm is an sequence of steps (instructions) to solve a clearly defined problem
+An alogorithm is a sequence of steps (instructions) to solve a clearly defined problem
 Best solution options
 1. Minmium amount of code
 2. Best performance
